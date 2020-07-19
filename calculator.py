@@ -9,12 +9,11 @@ from arithmetic import (add, subtract, multiply, divide, square, cube,
 user_input = input("Enter your equation >> ")
 output = ""
 
-print(f"You entered {user_input}")
-
 def process(user_input):
-    while user_input != " ":
+    while True:
         token = user_input.split(' ')
         if(token[0]== 'q'):
+            print("You have left")
             break
         else:
             if(token[0] == '+'):
@@ -33,6 +32,9 @@ def process(user_input):
                 output = power(float(token[1]),float(token[2]))
             if(token[0] == 'mod'):
                 output = mod(float(token[1]),float(token[2]))
+            if(token[0] == 'quit'):
+                print("You have left")
+                break
         return output
 
 print(process(user_input))
